@@ -21,7 +21,7 @@ namespace Agility.Common.Tests.Infrastructure
         }
 
         [Test]
-        [ExpectedException(ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
+        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void Register_ComponentAlreadyRegistered_ShouldGiveRegistrationException()
         {
             ComponentProvider.Register<ISampleComponent, SampleComponent>();
@@ -37,7 +37,7 @@ namespace Agility.Common.Tests.Infrastructure
         }
 
         [Test]
-        [ExpectedException(ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
+        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void RegisterSingleton_ComponentAlreadyRegistered_ShouldGiveRegistrationException()
         {
             ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent>();
@@ -67,7 +67,7 @@ namespace Agility.Common.Tests.Infrastructure
         }
 
         [Test]
-        [ExpectedException(ExpectedMessage = "There is no component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
+        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is no component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void Resolve_ComponentNotRegisteredYet_ShouldGiveRegistrationException()
         {
             ComponentProvider.Resolve<ISampleComponent>();

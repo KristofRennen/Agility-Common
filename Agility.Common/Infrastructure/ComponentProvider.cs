@@ -41,7 +41,7 @@ namespace Agility.Common.Infrastructure
         {
             if (!HasRegisteredComponentFor<TInterface>())
             {
-                throw new ApplicationException(string.Format("There is no component registered for {0}", typeof(TInterface).FullName));
+                throw new ComponentRegistrationException(string.Format("There is no component registered for {0}", typeof(TInterface).FullName));
             }
 
             return container.GetInstance<TInterface>();
@@ -51,7 +51,7 @@ namespace Agility.Common.Infrastructure
         {
             if (HasRegisteredComponentFor<TInterface>())
             {
-                throw new ApplicationException(string.Format("There is already a component registered for {0}", typeof(TInterface).FullName));
+                throw new ComponentRegistrationException(string.Format("There is already a component registered for {0}", typeof(TInterface).FullName));
             }
         }
     }

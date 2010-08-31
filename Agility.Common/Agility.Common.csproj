@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\ComponentProvider.cs" />
+    <Compile Include="Infrastructure\ComponentRegistrationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\Agility.Common.Versioning\ProductInfo.cs">
       <Link>Properties\ProductInfo.cs</Link>
