@@ -1,5 +1,4 @@
 using Agility.Common.Infrastructure;
-using Castle.MicroKernel;
 using NUnit.Framework;
 
 namespace Agility.Common.Tests.Infrastructure
@@ -16,42 +15,42 @@ namespace Agility.Common.Tests.Infrastructure
         [Test]
         public void Register_ComponentNotRegisteredYet_ComponentShouldBeRegistered()
         {
-            ComponentProvider.Register<ISample, Sample>();
+            ComponentProvider.Register<ISampleComponent, SampleComponent>();
 
-            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<ISample>());
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<ISampleComponent>());
         }
 
         [Test]
-        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is a component already registered for the given key Agility.Common.Tests.Infrastructure.Sample")]
+        [ExpectedException(ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void Register_ComponentAlreadyRegistered_ShouldGiveRegistrationException()
         {
-            ComponentProvider.Register<ISample, Sample>();
-            ComponentProvider.Register<ISample, Sample>();
+            ComponentProvider.Register<ISampleComponent, SampleComponent>();
+            ComponentProvider.Register<ISampleComponent, SampleComponent2>();
         }
 
         [Test]
         public void RegisterSingleton_ComponentNotRegisteredYet_ComponentShouldBeRegistered()
         {
-            ComponentProvider.RegisterSingleton<ISample, Sample>();
+            ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent>();
 
-            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<ISample>());
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<ISampleComponent>());
         }
 
         [Test]
-        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is a component already registered for the given key Agility.Common.Tests.Infrastructure.Sample")]
+        [ExpectedException(ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void RegisterSingleton_ComponentAlreadyRegistered_ShouldGiveRegistrationException()
         {
-            ComponentProvider.RegisterSingleton<ISample, Sample>();
-            ComponentProvider.RegisterSingleton<ISample, Sample>();
+            ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent>();
+            ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent2>();
         }
 
         [Test]
         public void Resolve_ComponentWasRegisteredWithDefaultLifestyle_NewComponentShouldBeReturned()
         {
-            ComponentProvider.Register<ISample, Sample>();
+            ComponentProvider.Register<ISampleComponent, SampleComponent>();
 
-            var resolvedComponent1 = ComponentProvider.Resolve<ISample>();
-            var resolvedComponent2 = ComponentProvider.Resolve<ISample>();
+            var resolvedComponent1 = ComponentProvider.Resolve<ISampleComponent>();
+            var resolvedComponent2 = ComponentProvider.Resolve<ISampleComponent>();
 
             Assert.AreNotSame(resolvedComponent1, resolvedComponent2);
         }
@@ -59,44 +58,45 @@ namespace Agility.Common.Tests.Infrastructure
         [Test]
         public void Resolve_ComponentWasRegisteredWithSingletonLifestyle_SameComponentShouldBeReturned()
         {
-            ComponentProvider.RegisterSingleton<ISample, Sample>();
+            ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent>();
 
-            var resolvedComponent1 = ComponentProvider.Resolve<ISample>();
-            var resolvedComponent2 = ComponentProvider.Resolve<ISample>();
+            var resolvedComponent1 = ComponentProvider.Resolve<ISampleComponent>();
+            var resolvedComponent2 = ComponentProvider.Resolve<ISampleComponent>();
 
             Assert.AreSame(resolvedComponent1, resolvedComponent2);
         }
 
         [Test]
-        [ExpectedException(typeof(ComponentNotFoundException), ExpectedMessage = "No component for supporting the service Agility.Common.Tests.Infrastructure.ISample was found")]
+        [ExpectedException(ExpectedMessage = "There is no component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void Resolve_ComponentNotRegisteredYet_ShouldGiveRegistrationException()
         {
-            ComponentProvider.Resolve<ISample>();
+            ComponentProvider.Resolve<ISampleComponent>();
         }
 
         [Test]
         public void Resolve_ComponentAlreadyRegistered_ShouldReturnComponent()
         {
-            ComponentProvider.Register<ISample, Sample>();
+            ComponentProvider.Register<ISampleComponent, SampleComponent>();
 
-            Assert.IsNotNull(ComponentProvider.Resolve<ISample>());
+            Assert.IsNotNull(ComponentProvider.Resolve<ISampleComponent>());
         }
 
         [Test]
         public void HasRegisteredComponentFor_ComponentNotRegisteredYet_False()
         {
-            Assert.IsFalse(ComponentProvider.HasRegisteredComponentFor<ISample>());
+            Assert.IsFalse(ComponentProvider.HasRegisteredComponentFor<ISampleComponent>());
         }
 
         [Test]
         public void HasRegisteredComponentFor_ComponentAlreadyRegistered_True()
         {
-            ComponentProvider.Register<ISample, Sample>();
+            ComponentProvider.Register<ISampleComponent, SampleComponent>();
 
-            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<ISample>());
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<ISampleComponent>());
         }
     }
 
-    interface ISample {}
-    class Sample : ISample {}
+    interface ISampleComponent {}
+    class SampleComponent : ISampleComponent { }
+    class SampleComponent2 : ISampleComponent { }
 }

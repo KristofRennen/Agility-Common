@@ -1,11 +1,12 @@
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
+using System;
+using System.Linq;
+using StructureMap;
 
 namespace Agility.Common.Infrastructure
 {
-    public class ComponentProvider
+    public static class ComponentProvider
     {
-        private static IWindsorContainer container;
+        private static IContainer container;
 
         static ComponentProvider()
         {
@@ -14,27 +15,44 @@ namespace Agility.Common.Infrastructure
 
         public static void ReBuild()
         {
-            container = new WindsorContainer();
+            container = new Container(c => { });
         }
 
         public static void Register<TInterface, TImplementation>() where TImplementation : TInterface
         {
-            container.Register(Component.For<TInterface>().ImplementedBy<TImplementation>().LifeStyle.Transient);
+            CheckComponentUniqueness<TInterface>();
+
+            container.Configure(o => o.For<TInterface>().Use<TImplementation>());
         }
 
         public static void RegisterSingleton<TInterface, TImplementation>() where TImplementation : TInterface
         {
-            container.Register(Component.For<TInterface>().ImplementedBy<TImplementation>().LifeStyle.Singleton);
+            CheckComponentUniqueness<TInterface>();
+
+            container.Configure(o => o.For<TInterface>().Singleton().Use<TImplementation>());
         }
 
         public static bool HasRegisteredComponentFor<TInterface>()
         {
-            return container.Kernel.HasComponent(typeof (TInterface));
+            return container.Model.HasImplementationsFor<TInterface>();
         }
 
         public static TInterface Resolve<TInterface>()
         {
-            return container.Resolve<TInterface>();
+            if (!HasRegisteredComponentFor<TInterface>())
+            {
+                throw new ApplicationException(string.Format("There is no component registered for {0}", typeof(TInterface).FullName));
+            }
+
+            return container.GetInstance<TInterface>();
+        }
+
+        private static void CheckComponentUniqueness<TInterface>()
+        {
+            if (HasRegisteredComponentFor<TInterface>())
+            {
+                throw new ApplicationException(string.Format("There is already a component registered for {0}", typeof(TInterface).FullName));
+            }
         }
     }
 }
