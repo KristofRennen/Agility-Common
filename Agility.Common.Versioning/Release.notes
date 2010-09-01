@@ -1,2 +1,3 @@
-v1.0.0 - 2010/08/30
+v1.0.0 - 2010/08/30 -> 2010/09/01
 + Initial version
++ Support for a component provider managing components and dependencies
