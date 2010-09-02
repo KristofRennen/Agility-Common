@@ -15,7 +15,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <OutputPath>.\Agility.Common.Documentation\</OutputPath>
-    <HtmlHelpName>Documentation</HtmlHelpName>
+    <HtmlHelpName>Agility.Common</HtmlHelpName>
     <Language>en-US</Language>
     <DocumentationSources>
       <DocumentationSource sourceFile="Agility.Common\Agility.Common.csproj" />
