@@ -4,9 +4,9 @@ A Common Library With Shared Agile Components
 
 == Versions
 
-v1.0.0 - 2010/08/30 -> 2010/09/02
-+ Initial version
-+ Support for a component provider managing components and dependencies
+v1.0.0 - 2010/08/30 : 2010/09/02
+ + Initial version
+ + Support for a component provider managing components and dependencies
 
 == Contributing
 
