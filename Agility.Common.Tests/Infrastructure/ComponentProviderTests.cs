@@ -21,11 +21,13 @@ namespace Agility.Common.Tests.Infrastructure
         }
 
         [Test]
-        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void Register_ComponentAlreadyRegistered_ShouldGiveRegistrationException()
         {
             ComponentProvider.Register<ISampleComponent, SampleComponent>();
-            ComponentProvider.Register<ISampleComponent, SampleComponent2>();
+
+            Assert.Throws<ComponentRegistrationException>(
+                ComponentProvider.Register<ISampleComponent, SampleComponent2>, 
+                "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent");
         }
 
         [Test]
@@ -37,11 +39,13 @@ namespace Agility.Common.Tests.Infrastructure
         }
 
         [Test]
-        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void RegisterSingleton_ComponentAlreadyRegistered_ShouldGiveRegistrationException()
         {
             ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent>();
-            ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent2>();
+
+            Assert.Throws<ComponentRegistrationException>(
+                ComponentProvider.RegisterSingleton<ISampleComponent, SampleComponent2>, 
+                "There is already a component registered for Agility.Common.Tests.Infrastructure.ISampleComponent");
         }
 
         [Test]
@@ -67,10 +71,11 @@ namespace Agility.Common.Tests.Infrastructure
         }
 
         [Test]
-        [ExpectedException(typeof(ComponentRegistrationException), ExpectedMessage = "There is no component registered for Agility.Common.Tests.Infrastructure.ISampleComponent")]
         public void Resolve_ComponentNotRegisteredYet_ShouldGiveRegistrationException()
         {
-            ComponentProvider.Resolve<ISampleComponent>();
+            Assert.Throws<ComponentRegistrationException>(
+                () => ComponentProvider.Resolve<ISampleComponent>(), 
+                "There is no component registered for Agility.Common.Tests.Infrastructure.ISampleComponent");
         }
 
         [Test]
