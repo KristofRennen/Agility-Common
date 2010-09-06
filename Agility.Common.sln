@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agility.Common", "Agility.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agility.Common.Tests", "Agility.Common.Tests\Agility.Common.Tests.csproj", "{1777E80E-69D6-446A-B079-F89DA9FD84BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agility.Common.Specs", "Agility.Common.Specs\Agility.Common.Specs.csproj", "{AC36DFDE-E477-4BDE-B875-8BCBF5A3844E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{1777E80E-69D6-446A-B079-F89DA9FD84BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1777E80E-69D6-446A-B079-F89DA9FD84BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1777E80E-69D6-446A-B079-F89DA9FD84BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC36DFDE-E477-4BDE-B875-8BCBF5A3844E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC36DFDE-E477-4BDE-B875-8BCBF5A3844E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC36DFDE-E477-4BDE-B875-8BCBF5A3844E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC36DFDE-E477-4BDE-B875-8BCBF5A3844E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
