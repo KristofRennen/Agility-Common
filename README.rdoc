@@ -4,6 +4,11 @@ A Common Library With Shared Agile Components
 
 == Versions
 
+v1.0.1 - 2010/09/02 : 2010/09/06
+ + Full code documentation
+ + Fully covered technical test suite
+ + Fully covered SpecFlow test suite
+
 v1.0.0 - 2010/08/30 : 2010/09/02
  + Initial version
  + Support for a component provider managing components and dependencies
