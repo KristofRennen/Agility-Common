@@ -178,7 +178,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 40
 testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
 #line 41
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponent");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponent 1 time");
 #line 42
 testRunner.Then("The system shows the error message \"There is no component registered for Agility." +
                     "Common.Specs.IComponent\"");
@@ -196,7 +196,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 45
 testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a transient");
 #line 46
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponent");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponent 1 time");
 #line 47
 testRunner.Then("An instance of component Agility.Common.Specs.IComponent is returned");
 #line hidden
@@ -213,7 +213,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
 testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a singleton");
 #line 51
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponent");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponent 1 time");
 #line 52
 testRunner.Then("An instance of component Agility.Common.Specs.IComponent is returned");
 #line hidden
@@ -230,7 +230,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 55
 testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a transient");
 #line 56
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponent multiple times");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponent 2 times");
 #line 57
 testRunner.Then("A new instance of component Agility.Common.Specs.IComponent is returned each time" +
                     "");
@@ -248,7 +248,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 60
 testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a singleton");
 #line 61
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponent multiple times");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponent 2 times");
 #line 62
 testRunner.Then("The same instance of component Agility.Common.Specs.IComponent is returned each t" +
                     "ime");
@@ -270,7 +270,7 @@ testRunner.Given("Component Agility.Common.Specs.IComponentWithConstructorDepend
 testRunner.And("Component Agility.Common.Specs.IComponent is registered as a transient");
 #line 67
 testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
-                    "cy");
+                    "cy 1 time");
 #line 68
 testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithConstructorDependency" +
                     " is returned");
@@ -297,7 +297,7 @@ testRunner.Given("Component Agility.Common.Specs.IComponentWithConstructorDepend
 testRunner.And("Component Agility.Common.Specs.IComponent is registered as a singleton");
 #line 75
 testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
-                    "cy");
+                    "cy 1 time");
 #line 76
 testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithConstructorDependency" +
                     " is returned");
@@ -323,7 +323,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponentWithPropertyDependenc
 #line 82
 testRunner.And("Component Agility.Common.Specs.IComponent is registered as a transient");
 #line 83
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency " +
+                    "1 time");
 #line 84
 testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithPropertyDependency is" +
                     " returned");
@@ -348,7 +349,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponentWithPropertyDependenc
 #line 90
 testRunner.And("Component Agility.Common.Specs.IComponent is registered as a singleton");
 #line 91
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency " +
+                    "1 time");
 #line 92
 testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithPropertyDependency is" +
                     " returned");
@@ -373,7 +375,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponentWithDependencies is r
 #line 98
 testRunner.And("Component Agility.Common.Specs.IComponent is registered as a transient");
 #line 99
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time" +
+                    "");
 #line 100
 testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithDependencies is retur" +
                     "ned");
@@ -398,7 +401,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponentWithDependencies is r
 #line 106
 testRunner.And("Component Agility.Common.Specs.IComponent is registered as a singleton");
 #line 107
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time" +
+                    "");
 #line 108
 testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithDependencies is retur" +
                     "ned");
@@ -424,7 +428,7 @@ testRunner.But("Component Agility.Common.Specs.IComponentWithConstructorDependen
                     "as a transient");
 #line 115
 testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
-                    "cy");
+                    "cy 1 time");
 #line 116
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithConstructorDependency\"");
@@ -467,7 +471,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
 testRunner.But("Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as " +
                     "a transient");
 #line 127
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency " +
+                    "1 time");
 #line 128
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithPropertyDependency\"");
@@ -509,7 +514,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
 testRunner.But("Component Agility.Common.Specs.IComponentWithDependencies is registered as a tran" +
                     "sient");
 #line 139
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time" +
+                    "");
 #line 140
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithDependencies\"");
@@ -530,7 +536,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
 testRunner.But("Component Agility.Common.Specs.IComponentWithDependencies is registered as a sing" +
                     "leton");
 #line 145
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time" +
+                    "");
 #line 146
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithDependencies\"");
