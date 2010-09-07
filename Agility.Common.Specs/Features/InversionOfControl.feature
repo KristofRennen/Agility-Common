@@ -67,7 +67,7 @@ Scenario: Resolve a component with registered transient constructor dependencies
 	When  I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependency 1 time
 	Then  An instance of component Agility.Common.Specs.IComponentWithConstructorDependency is returned
 	And   Component Agility.Common.Specs.IComponentWithConstructorDependency has 1 dependency
-	And   All dependencies are new instances
+	And   All Agility.Common.Specs.IComponent dependencies are new instances
 
 Scenario: Resolve a component with registered singleton constructor dependencies
 	Given Component Agility.Common.Specs.IComponentWithConstructorDependency is registered as a transient
@@ -75,7 +75,7 @@ Scenario: Resolve a component with registered singleton constructor dependencies
 	When  I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependency 1 time
 	Then  An instance of component Agility.Common.Specs.IComponentWithConstructorDependency is returned
 	And   Component Agility.Common.Specs.IComponentWithConstructorDependency has 1 dependency
-	And   All dependencies are the same instances
+	And   All Agility.Common.Specs.IComponent dependencies are the same instances
 
 Scenario: Resolve a component with registered transient property dependencies
 	Given Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as a transient
@@ -83,7 +83,7 @@ Scenario: Resolve a component with registered transient property dependencies
 	When  I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency 1 time
 	Then  An instance of component Agility.Common.Specs.IComponentWithPropertyDependency is returned
 	And   Component Agility.Common.Specs.IComponentWithPropertyDependency has 1 dependency
-	And   All dependencies are new instances
+	And   All Agility.Common.Specs.IComponent dependencies are new instances
 
 Scenario: Resolve a component with registered singleton property dependencies
 	Given Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as a transient
@@ -91,7 +91,7 @@ Scenario: Resolve a component with registered singleton property dependencies
 	When  I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency 1 time
 	Then  An instance of component Agility.Common.Specs.IComponentWithPropertyDependency is returned
 	And   Component Agility.Common.Specs.IComponentWithPropertyDependency has 1 dependency
-	And   All dependencies are the same instances
+	And   All Agility.Common.Specs.IComponent dependencies are the same instances
 
 Scenario: Resolve a component with registered transient dependencies
 	Given Component Agility.Common.Specs.IComponentWithDependencies is registered as a transient
@@ -99,7 +99,7 @@ Scenario: Resolve a component with registered transient dependencies
 	When  I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time
 	Then  An instance of component Agility.Common.Specs.IComponentWithDependencies is returned
 	And   Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies
-	And   All dependencies are new instances
+	And   All Agility.Common.Specs.IComponent dependencies are new instances
 
 Scenario: Resolve a component with registered singleton dependencies
 	Given Component Agility.Common.Specs.IComponentWithDependencies is registered as a transient
@@ -107,7 +107,7 @@ Scenario: Resolve a component with registered singleton dependencies
 	When  I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time
 	Then  An instance of component Agility.Common.Specs.IComponentWithDependencies is returned
 	And   Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies
-	And   All dependencies are the same instances
+	And   All Agility.Common.Specs.IComponent dependencies are the same instances
 
 Scenario: Resolve a component with unregistered transient constructor dependencies
 	Given Component Agility.Common.Specs.IComponent is not registered
@@ -118,7 +118,7 @@ Scenario: Resolve a component with unregistered transient constructor dependenci
 Scenario: Resolve a component with unregistered singleton constructor dependencies
 	Given Component Agility.Common.Specs.IComponent is not registered
 	But   Component Agility.Common.Specs.IComponentWithConstructorDependency is registered as a singleton
-	When  I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependency
+	When  I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependency 1 time
 	Then  The system shows the error message "There are unregistered dependencies for component Agility.Common.Specs.IComponentWithConstructorDependency"
 
 Scenario: Resolve a component with unregistered transient property dependencies
@@ -130,7 +130,7 @@ Scenario: Resolve a component with unregistered transient property dependencies
 Scenario: Resolve a component with unregistered singleton property dependencies
 	Given Component Agility.Common.Specs.IComponent is not registered
 	But   Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as a singleton
-	When  I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency
+	When  I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency 1 time
 	Then  The system shows the error message "There are unregistered dependencies for component Agility.Common.Specs.IComponentWithPropertyDependency"
 
 Scenario: Resolve a component with unregistered transient dependencies

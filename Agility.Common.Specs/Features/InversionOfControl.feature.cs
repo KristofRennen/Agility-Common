@@ -278,7 +278,7 @@ testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithCon
 testRunner.And("Component Agility.Common.Specs.IComponentWithConstructorDependency has 1 dependen" +
                     "cy");
 #line 70
-testRunner.And("All dependencies are new instances");
+testRunner.And("All Agility.Common.Specs.IComponent dependencies are new instances");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -305,7 +305,7 @@ testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithCon
 testRunner.And("Component Agility.Common.Specs.IComponentWithConstructorDependency has 1 dependen" +
                     "cy");
 #line 78
-testRunner.And("All dependencies are the same instances");
+testRunner.And("All Agility.Common.Specs.IComponent dependencies are the same instances");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -331,7 +331,7 @@ testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithPro
 #line 85
 testRunner.And("Component Agility.Common.Specs.IComponentWithPropertyDependency has 1 dependency");
 #line 86
-testRunner.And("All dependencies are new instances");
+testRunner.And("All Agility.Common.Specs.IComponent dependencies are new instances");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -357,7 +357,7 @@ testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithPro
 #line 93
 testRunner.And("Component Agility.Common.Specs.IComponentWithPropertyDependency has 1 dependency");
 #line 94
-testRunner.And("All dependencies are the same instances");
+testRunner.And("All Agility.Common.Specs.IComponent dependencies are the same instances");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -383,7 +383,7 @@ testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithDep
 #line 101
 testRunner.And("Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies");
 #line 102
-testRunner.And("All dependencies are new instances");
+testRunner.And("All Agility.Common.Specs.IComponent dependencies are new instances");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -409,7 +409,7 @@ testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithDep
 #line 109
 testRunner.And("Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies");
 #line 110
-testRunner.And("All dependencies are the same instances");
+testRunner.And("All Agility.Common.Specs.IComponent dependencies are the same instances");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -450,7 +450,7 @@ testRunner.But("Component Agility.Common.Specs.IComponentWithConstructorDependen
                     "as a singleton");
 #line 121
 testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
-                    "cy");
+                    "cy 1 time");
 #line 122
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithConstructorDependency\"");
@@ -493,7 +493,8 @@ testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
 testRunner.But("Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as " +
                     "a singleton");
 #line 133
-testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency " +
+                    "1 time");
 #line 134
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithPropertyDependency\"");
