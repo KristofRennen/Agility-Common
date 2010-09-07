@@ -255,6 +255,288 @@ testRunner.Then("The same instance of component Agility.Common.Specs.IComponent 
 #line hidden
             testRunner.CollectScenarioErrors();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with registered transient constructor dependencies")]
+        public virtual void ResolveAComponentWithRegisteredTransientConstructorDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with registered transient constructor dependencies", ((string[])(null)));
+#line 64
+this.ScenarioSetup(scenarioInfo);
+#line 65
+testRunner.Given("Component Agility.Common.Specs.IComponentWithConstructorDependency is registered " +
+                    "as a transient");
+#line 66
+testRunner.And("Component Agility.Common.Specs.IComponent is registered as a transient");
+#line 67
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
+                    "cy");
+#line 68
+testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithConstructorDependency" +
+                    " is returned");
+#line 69
+testRunner.And("Component Agility.Common.Specs.IComponentWithConstructorDependency has 1 dependen" +
+                    "cy");
+#line 70
+testRunner.And("All dependencies are new instances");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with registered singleton constructor dependencies")]
+        public virtual void ResolveAComponentWithRegisteredSingletonConstructorDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with registered singleton constructor dependencies", ((string[])(null)));
+#line 72
+this.ScenarioSetup(scenarioInfo);
+#line 73
+testRunner.Given("Component Agility.Common.Specs.IComponentWithConstructorDependency is registered " +
+                    "as a transient");
+#line 74
+testRunner.And("Component Agility.Common.Specs.IComponent is registered as a singleton");
+#line 75
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
+                    "cy");
+#line 76
+testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithConstructorDependency" +
+                    " is returned");
+#line 77
+testRunner.And("Component Agility.Common.Specs.IComponentWithConstructorDependency has 1 dependen" +
+                    "cy");
+#line 78
+testRunner.And("All dependencies are the same instances");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with registered transient property dependencies")]
+        public virtual void ResolveAComponentWithRegisteredTransientPropertyDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with registered transient property dependencies", ((string[])(null)));
+#line 80
+this.ScenarioSetup(scenarioInfo);
+#line 81
+testRunner.Given("Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as " +
+                    "a transient");
+#line 82
+testRunner.And("Component Agility.Common.Specs.IComponent is registered as a transient");
+#line 83
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+#line 84
+testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithPropertyDependency is" +
+                    " returned");
+#line 85
+testRunner.And("Component Agility.Common.Specs.IComponentWithPropertyDependency has 1 dependency");
+#line 86
+testRunner.And("All dependencies are new instances");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with registered singleton property dependencies")]
+        public virtual void ResolveAComponentWithRegisteredSingletonPropertyDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with registered singleton property dependencies", ((string[])(null)));
+#line 88
+this.ScenarioSetup(scenarioInfo);
+#line 89
+testRunner.Given("Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as " +
+                    "a transient");
+#line 90
+testRunner.And("Component Agility.Common.Specs.IComponent is registered as a singleton");
+#line 91
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+#line 92
+testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithPropertyDependency is" +
+                    " returned");
+#line 93
+testRunner.And("Component Agility.Common.Specs.IComponentWithPropertyDependency has 1 dependency");
+#line 94
+testRunner.And("All dependencies are the same instances");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with registered transient dependencies")]
+        public virtual void ResolveAComponentWithRegisteredTransientDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with registered transient dependencies", ((string[])(null)));
+#line 96
+this.ScenarioSetup(scenarioInfo);
+#line 97
+testRunner.Given("Component Agility.Common.Specs.IComponentWithDependencies is registered as a tran" +
+                    "sient");
+#line 98
+testRunner.And("Component Agility.Common.Specs.IComponent is registered as a transient");
+#line 99
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+#line 100
+testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithDependencies is retur" +
+                    "ned");
+#line 101
+testRunner.And("Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies");
+#line 102
+testRunner.And("All dependencies are new instances");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with registered singleton dependencies")]
+        public virtual void ResolveAComponentWithRegisteredSingletonDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with registered singleton dependencies", ((string[])(null)));
+#line 104
+this.ScenarioSetup(scenarioInfo);
+#line 105
+testRunner.Given("Component Agility.Common.Specs.IComponentWithDependencies is registered as a tran" +
+                    "sient");
+#line 106
+testRunner.And("Component Agility.Common.Specs.IComponent is registered as a singleton");
+#line 107
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+#line 108
+testRunner.Then("An instance of component Agility.Common.Specs.IComponentWithDependencies is retur" +
+                    "ned");
+#line 109
+testRunner.And("Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies");
+#line 110
+testRunner.And("All dependencies are the same instances");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with unregistered transient constructor dependencies")]
+        public virtual void ResolveAComponentWithUnregisteredTransientConstructorDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with unregistered transient constructor dependencies", ((string[])(null)));
+#line 112
+this.ScenarioSetup(scenarioInfo);
+#line 113
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 114
+testRunner.But("Component Agility.Common.Specs.IComponentWithConstructorDependency is registered " +
+                    "as a transient");
+#line 115
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
+                    "cy");
+#line 116
+testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
+                    "nent Agility.Common.Specs.IComponentWithConstructorDependency\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with unregistered singleton constructor dependencies")]
+        public virtual void ResolveAComponentWithUnregisteredSingletonConstructorDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with unregistered singleton constructor dependencies", ((string[])(null)));
+#line 118
+this.ScenarioSetup(scenarioInfo);
+#line 119
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 120
+testRunner.But("Component Agility.Common.Specs.IComponentWithConstructorDependency is registered " +
+                    "as a singleton");
+#line 121
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithConstructorDependen" +
+                    "cy");
+#line 122
+testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
+                    "nent Agility.Common.Specs.IComponentWithConstructorDependency\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with unregistered transient property dependencies")]
+        public virtual void ResolveAComponentWithUnregisteredTransientPropertyDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with unregistered transient property dependencies", ((string[])(null)));
+#line 124
+this.ScenarioSetup(scenarioInfo);
+#line 125
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 126
+testRunner.But("Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as " +
+                    "a transient");
+#line 127
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+#line 128
+testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
+                    "nent Agility.Common.Specs.IComponentWithPropertyDependency\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with unregistered singleton property dependencies")]
+        public virtual void ResolveAComponentWithUnregisteredSingletonPropertyDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with unregistered singleton property dependencies", ((string[])(null)));
+#line 130
+this.ScenarioSetup(scenarioInfo);
+#line 131
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 132
+testRunner.But("Component Agility.Common.Specs.IComponentWithPropertyDependency is registered as " +
+                    "a singleton");
+#line 133
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithPropertyDependency");
+#line 134
+testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
+                    "nent Agility.Common.Specs.IComponentWithPropertyDependency\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with unregistered transient dependencies")]
+        public virtual void ResolveAComponentWithUnregisteredTransientDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with unregistered transient dependencies", ((string[])(null)));
+#line 136
+this.ScenarioSetup(scenarioInfo);
+#line 137
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 138
+testRunner.But("Component Agility.Common.Specs.IComponentWithDependencies is registered as a tran" +
+                    "sient");
+#line 139
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+#line 140
+testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
+                    "nent Agility.Common.Specs.IComponentWithDependencies\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Resolve a component with unregistered singleton dependencies")]
+        public virtual void ResolveAComponentWithUnregisteredSingletonDependencies()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Resolve a component with unregistered singleton dependencies", ((string[])(null)));
+#line 142
+this.ScenarioSetup(scenarioInfo);
+#line 143
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 144
+testRunner.But("Component Agility.Common.Specs.IComponentWithDependencies is registered as a sing" +
+                    "leton");
+#line 145
+testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithDependencies");
+#line 146
+testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
+                    "nent Agility.Common.Specs.IComponentWithDependencies\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
     }
 }
 #endregion
