@@ -49,6 +49,7 @@ namespace Agility.Common.Infrastructure
             CheckComponentUniqueness<TInterface>();
 
             container.Configure(o => o.For<TInterface>().Singleton().Use<TImplementation>());
+            RegisterAutomaticPropertyInjection<TInterface, TImplementation>();
         }
 
         /// <summary>
@@ -75,7 +76,14 @@ namespace Agility.Common.Infrastructure
                 throw new ComponentRegistrationException(string.Format("There is no component registered for {0}", typeof(TInterface).FullName));
             }
 
-            return container.GetInstance<TInterface>();
+            try
+            {
+                return container.GetInstance<TInterface>();
+            }
+            catch
+            {
+                throw new ComponentRegistrationException(string.Format("There are unregistered dependencies for component {0}", typeof(TInterface).FullName));
+            }
         }
 
         /// <summary>
@@ -91,6 +99,16 @@ namespace Agility.Common.Infrastructure
             {
                 throw new ComponentRegistrationException(string.Format("There is already a component registered for {0}", typeof(TInterface).FullName));
             }
+        }
+
+        /// <summary>
+        /// Registers an implementation for the given contract to be auto wired through property injection as to support optional dependencies.
+        /// </summary>
+        /// <typeparam name="TInterface">The contract of the component to register.</typeparam>
+        /// <typeparam name="TImplementation">The implementation of the component to register.</typeparam>
+        private static void RegisterAutomaticPropertyInjection<TInterface, TImplementation>() where TImplementation : TInterface
+        {
+            container.Configure(o => o.FillAllPropertiesOfType<TInterface>().Use<TImplementation>());
         }
     }
 }
