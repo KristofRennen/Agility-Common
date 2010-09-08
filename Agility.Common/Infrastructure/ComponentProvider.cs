@@ -1,3 +1,4 @@
+using Agility.Common.Utility;
 using StructureMap;
 
 namespace Agility.Common.Infrastructure
@@ -73,7 +74,7 @@ namespace Agility.Common.Infrastructure
         {
             if (!HasRegisteredComponentFor<TInterface>())
             {
-                throw new ComponentRegistrationException(string.Format("There is no component registered for {0}", typeof(TInterface).FullName));
+                throw new ComponentRegistrationException(string.Format("There is no component registered for {0}", GetComponentName<TInterface>()));
             }
 
             try
@@ -82,7 +83,7 @@ namespace Agility.Common.Infrastructure
             }
             catch
             {
-                throw new ComponentRegistrationException(string.Format("There are unregistered dependencies for component {0}", typeof(TInterface).FullName));
+                throw new ComponentRegistrationException(string.Format("There are unregistered dependencies for component {0}", GetComponentName<TInterface>()));
             }
         }
 
@@ -97,7 +98,7 @@ namespace Agility.Common.Infrastructure
         {
             if (HasRegisteredComponentFor<TInterface>())
             {
-                throw new ComponentRegistrationException(string.Format("There is already a component registered for {0}", typeof(TInterface).FullName));
+                throw new ComponentRegistrationException(string.Format("There is already a component registered for {0}", GetComponentName<TInterface>()));
             }
         }
 
@@ -109,6 +110,16 @@ namespace Agility.Common.Infrastructure
         private static void RegisterAutomaticPropertyInjection<TInterface, TImplementation>() where TImplementation : TInterface
         {
             container.Configure(o => o.FillAllPropertiesOfType<TInterface>().Use<TImplementation>());
+        }
+
+        /// <summary>
+        /// Returns the full qualified name of the given contract.
+        /// </summary>
+        /// <typeparam name="TInterface">The contract of the component to get the name from.</typeparam>
+        /// <returns>The full qualified name of the component.</returns>
+        private static string GetComponentName<TInterface>()
+        {
+            return typeof (TInterface).NiceName();
         }
     }
 }

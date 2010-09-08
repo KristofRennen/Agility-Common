@@ -51,6 +51,7 @@
     <Compile Include="..\Agility.Common.Versioning\ProductInfo.cs">
       <Link>Properties\ProductInfo.cs</Link>
     </Compile>
+    <Compile Include="Utility\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\Agility.Common.Versioning\Release.notes">
