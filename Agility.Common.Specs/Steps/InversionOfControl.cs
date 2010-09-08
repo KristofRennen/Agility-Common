@@ -53,7 +53,7 @@ namespace Agility.Common.Specs.Steps
             ExecuteMethod("RegisterSingleton", context.Contracts[componentContract], context.Implementations[componentContract]);
         }
 
-        [When(@"I try to resolve component (.*) (\d+) time|times")]
+        [When(@"I try to resolve component (.*) (\d+) (?:time|times)")]
         public void WhenITryToResolveComponentNTimes(string componentContract, int numberOfTimes)
         {
             for (int i = 0; i < numberOfTimes; i++)
@@ -80,8 +80,7 @@ namespace Agility.Common.Specs.Steps
             Assert.IsTrue(context.ResolvedComponents.Any(c => c.GetType() == context.Implementations[componentContract]));
         }
 
-        [Then(@"Component (.*) has (\d+) dependency")]
-        [Then(@"Component (.*) has (\d+) dependencies")]
+        [Then(@"Component (.*) has (\d+) (?:dependency|dependencies)")]
         public void ThenComponentHasNDependencies(string componentContract, int numberOfDependencies)
         {
             var component = (IComponentWithDependencies) context.ResolvedComponents.First(c => c.GetType() == context.Implementations[componentContract]);
