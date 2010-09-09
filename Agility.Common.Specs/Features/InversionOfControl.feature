@@ -36,6 +36,26 @@ Scenario: Register an existing transient component as singleton
 	When  I try to register component Agility.Common.Specs.IComponent as a singleton
 	Then  The system shows the error message "There is already a component registered for Agility.Common.Specs.IComponent"
 
+Scenario: Register an unexisting generic component as transient
+	Given Component Agility.Common.Specs.IGenericComponent is not registered
+	When  I try to register component Agility.Common.Specs.IGenericComponent as a transient
+	Then  Component Agility.Common.Specs.IGenericComponent is registered
+
+Scenario: Register an unexisting generic component as singleton
+	Given Component Agility.Common.Specs.IGenericComponent is not registered
+	When  I try to register component Agility.Common.Specs.IGenericComponent as a singleton
+	Then  Component Agility.Common.Specs.IGenericComponent is registered
+
+Scenario: Register an existing generic component as transient
+	Given Component Agility.Common.Specs.IGenericComponent is registered as a transient
+	When  I try to register component Agility.Common.Specs.IGenericComponent as a transient
+	Then  The system shows the error message "There is already a component registered for Agility.Common.Specs.IGenericComponent<Agility.Common.Specs.IComponent>"
+
+Scenario: Register an existing generic component as singleton
+	Given Component Agility.Common.Specs.IGenericComponent is registered as a singleton
+	When  I try to register component Agility.Common.Specs.IGenericComponent as a singleton
+	Then  The system shows the error message "There is already a component registered for Agility.Common.Specs.IGenericComponent<Agility.Common.Specs.IComponent>"
+
 Scenario: Resolve an unexisting component
 	Given Component Agility.Common.Specs.IComponent is not registered
 	When  I try to resolve component Agility.Common.Specs.IComponent 1 time
@@ -50,6 +70,16 @@ Scenario: Resolve an existing singleton component
 	Given Component Agility.Common.Specs.IComponent is registered as a singleton
 	When  I try to resolve component Agility.Common.Specs.IComponent 1 time
 	Then  An instance of component Agility.Common.Specs.IComponent is returned
+
+Scenario: Resolve an unexisting generic component
+	Given Component Agility.Common.Specs.IGenericComponent is not registered
+	When  I try to resolve component Agility.Common.Specs.IGenericComponent 1 time
+	Then  The system shows the error message "There is no component registered for Agility.Common.Specs.IGenericComponent<Agility.Common.Specs.IComponent>"
+
+Scenario: Resolve an existing generic component
+	Given Component Agility.Common.Specs.IGenericComponent is registered as a transient
+	When  I try to resolve component Agility.Common.Specs.IGenericComponent 1 time
+	Then  An instance of component Agility.Common.Specs.IGenericComponent is returned
 
 Scenario: Transient components always return new instances
 	Given Component Agility.Common.Specs.IComponent is registered as a transient
@@ -109,6 +139,12 @@ Scenario: Resolve a component with registered singleton dependencies
 	And   Component Agility.Common.Specs.IComponentWithDependencies has 2 dependencies
 	And   All Agility.Common.Specs.IComponent dependencies are the same instances
 
+Scenario: Resolve a component with registered generic dependencies
+	Given Component Agility.Common.Specs.IComponentWithGenericDependencies is registered as a transient
+	And   Component Agility.Common.Specs.IGenericComponent is registered as a transient
+	When  I try to resolve component Agility.Common.Specs.IComponentWithGenericDependencies 1 time
+	Then  An instance of component Agility.Common.Specs.IComponentWithGenericDependencies is returned
+
 Scenario: Resolve a component with unregistered transient constructor dependencies
 	Given Component Agility.Common.Specs.IComponent is not registered
 	But   Component Agility.Common.Specs.IComponentWithConstructorDependency is registered as a transient
@@ -144,3 +180,9 @@ Scenario: Resolve a component with unregistered singleton dependencies
 	But   Component Agility.Common.Specs.IComponentWithDependencies is registered as a singleton
 	When  I try to resolve component Agility.Common.Specs.IComponentWithDependencies 1 time
 	Then  The system shows the error message "There are unregistered dependencies for component Agility.Common.Specs.IComponentWithDependencies"
+
+Scenario: Resolve a component with unregisterd generic dependencies
+	Given Component Agility.Common.Specs.IGenericComponent is not registered
+	But   Component Agility.Common.Specs.IComponentWithGenericDependencies is registered as a transient
+	When  I try to resolve component Agility.Common.Specs.IComponentWithGenericDependencies 1 time
+	Then  The system shows the error message "There are unregistered dependencies for component Agility.Common.Specs.IComponentWithGenericDependencies"

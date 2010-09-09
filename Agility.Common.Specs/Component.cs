@@ -44,4 +44,20 @@ namespace Agility.Common.Specs
             }
         }
     }
+
+    public interface IGenericComponent<TArgument> { }
+
+    public class GenericComponent<TArgument> : IGenericComponent<TArgument> { }
+
+    public interface IComponentWithGenericDependencies { }
+
+    public class ComponentWithGenericDependencies : IComponentWithGenericDependencies
+    {
+        private readonly IGenericComponent<IComponent> component;
+
+        public ComponentWithGenericDependencies(IGenericComponent<IComponent> component)
+        {
+            this.component = component;
+        }
+    }
 }

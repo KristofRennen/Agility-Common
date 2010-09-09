@@ -187,6 +187,12 @@ namespace Agility.Common.Specs.Steps
             Contracts.Add("Agility.Common.Specs.IComponentWithDependencies", typeof(IComponentWithDependencies));
             Implementations.Add("Agility.Common.Specs.IComponentWithDependencies", typeof(ComponentWithDependencies));
 
+            Contracts.Add("Agility.Common.Specs.IGenericComponent", typeof (IGenericComponent<IComponent>));
+            Implementations.Add("Agility.Common.Specs.IGenericComponent", typeof (GenericComponent<IComponent>));
+
+            Contracts.Add("Agility.Common.Specs.IComponentWithGenericDependencies", typeof(IComponentWithGenericDependencies));
+            Implementations.Add("Agility.Common.Specs.IComponentWithGenericDependencies", typeof(ComponentWithGenericDependencies));
+
             Error = new Exception("");
         }
     }
