@@ -312,6 +312,38 @@ namespace Agility.Common.Tests.Infrastructure
 
             Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<IComponentWithGenericArguments<IComponent>>());
         }
+
+        [Test]
+        public void Unregister_NotRegisteredComponent_NothingHappens()
+        {
+            Assert.IsFalse(ComponentProvider.HasRegisteredComponentFor<IComponent>());
+            ComponentProvider.Unregister<IComponent>();
+            Assert.IsFalse(ComponentProvider.HasRegisteredComponentFor<IComponent>());
+        }
+
+        [Test]
+        public void Unregister_RegisteredComponent_ComponentIsUnregistered()
+        {
+            ComponentProvider.Register<IComponent, Component>();
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<IComponent>());
+            ComponentProvider.Unregister<IComponent>();
+            Assert.IsFalse(ComponentProvider.HasRegisteredComponentFor<IComponent>());
+        }
+
+        [Test]
+        public void Unregister_MultipleRegisteredComponent_OnlyCorrectComponentIsUnregistered()
+        {
+            ComponentProvider.Register<IComponent, Component>();
+            ComponentProvider.Register<IComponentWithGenericArguments<IComponent>, ComponentWithGenericArgument<IComponent>>();
+
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<IComponent>());
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<IComponentWithGenericArguments<IComponent>>());
+
+            ComponentProvider.Unregister<IComponent>();
+
+            Assert.IsFalse(ComponentProvider.HasRegisteredComponentFor<IComponent>());
+            Assert.IsTrue(ComponentProvider.HasRegisteredComponentFor<IComponentWithGenericArguments<IComponent>>());
+        }
     }
 
     interface IComponent {}

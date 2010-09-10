@@ -38,7 +38,7 @@ namespace Agility.Common.Specs.Steps
         [Given(@"Component (.*) is not registered")]
         public void GivenComponentIsNotRegistered(string componentContract)
         {
-            
+            ExecuteMethod("Unregister", context.Contracts[componentContract]);
         }
         
         [When(@"I try to register component (.*) as a transient")]
@@ -61,6 +61,12 @@ namespace Agility.Common.Specs.Steps
                 context.ResolvedComponents.Add(ExecuteMethod("Resolve", context.Contracts[componentContract]));
             }
         }
+
+        [When(@"I try to unregister component (.*)")]
+        public void WhenITryToUnregisterComponent(string componentContract)
+        {
+            ExecuteMethod("Unregister", context.Contracts[componentContract]);
+        }
         
         [Then(@"The system shows the error message ""(.*)""")]
         public void ThenTheSystemShowsTheErrorMessage(string errorMessage)
@@ -72,6 +78,12 @@ namespace Agility.Common.Specs.Steps
         public void ThenComponentIsRegistered(string componentContract)
         {
             Assert.IsTrue((bool)ExecuteMethod("HasRegisteredComponentFor", context.Contracts[componentContract]));
+        }
+
+        [Then(@"Component (.*) is not registered")]
+        public void ThenComponentIsNotRegistered(string componentContract)
+        {
+            Assert.IsFalse((bool)ExecuteMethod("HasRegisteredComponentFor", context.Contracts[componentContract]));
         }
 
         [Then(@"An instance of component (.*) is returned")]
@@ -146,7 +158,7 @@ namespace Agility.Common.Specs.Steps
                 Assert.AreSame(component, dependency);
             }
         }
-
+        
         private object ExecuteMethod(string methodName, params Type[] typeArguments)
         {
             try

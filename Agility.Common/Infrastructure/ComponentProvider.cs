@@ -54,6 +54,18 @@ namespace Agility.Common.Infrastructure
         }
 
         /// <summary>
+        /// Unregisters a component from the container if the given contract was already registered.
+        /// </summary>
+        /// <typeparam name="TInterface">The contract of the component to register.</typeparam>
+        public static void Unregister<TInterface>()
+        {
+            if (HasRegisteredComponentFor<TInterface>())
+            {
+                container.Model.EjectAndRemove(typeof(TInterface));
+            }
+        }
+
+        /// <summary>
         /// Returns whether a component for a given contract was registered within the container.
         /// </summary>
         /// <typeparam name="TInterface">The contract of the component to check.</typeparam>

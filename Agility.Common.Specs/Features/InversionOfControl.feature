@@ -1,7 +1,7 @@
 ﻿Feature: Inversion Of Control
 	In order to manage dynamic components and dependencies
 	As an application
-	I want to be able to register and resolve components
+	I want to be able to register, resolve and unregister components
 
 Background: 
 	Given Provider has no registered components
@@ -186,3 +186,32 @@ Scenario: Resolve a component with unregisterd generic dependencies
 	But   Component Agility.Common.Specs.IComponentWithGenericDependencies is registered as a transient
 	When  I try to resolve component Agility.Common.Specs.IComponentWithGenericDependencies 1 time
 	Then  The system shows the error message "There are unregistered dependencies for component Agility.Common.Specs.IComponentWithGenericDependencies"
+
+Scenario: Unregister an unexisting component
+	Given Component Agility.Common.Specs.IComponent is not registered
+	When  I try to unregister component Agility.Common.Specs.IComponent
+	Then  Component Agility.Common.Specs.IComponent is not registered
+
+Scenario: Unregister a registered transient component
+	Given Component Agility.Common.Specs.IComponent is registered as a transient
+	When  I try to unregister component Agility.Common.Specs.IComponent
+	Then  Component Agility.Common.Specs.IComponent is not registered
+
+Scenario: Unregister a registered singleton component
+	Given Component Agility.Common.Specs.IComponent is registered as a singleton
+	When  I try to unregister component Agility.Common.Specs.IComponent
+	Then  Component Agility.Common.Specs.IComponent is not registered
+
+Scenario: Unregister a registered transient component without touching other components
+	Given Component Agility.Common.Specs.IComponent is registered as a transient
+	And   Component Agility.Common.Specs.IGenericComponent is registered as a transient
+	When  I try to unregister component Agility.Common.Specs.IComponent
+	Then  Component Agility.Common.Specs.IComponent is not registered
+	But   Component Agility.Common.Specs.IGenericComponent is registered
+
+Scenario: Unregister a registered singleton component without touching other components
+	Given Component Agility.Common.Specs.IComponent is registered as a singleton
+	And   Component Agility.Common.Specs.IGenericComponent is registered as a singleton
+	When  I try to unregister component Agility.Common.Specs.IComponent
+	Then  Component Agility.Common.Specs.IComponent is not registered
+	But   Component Agility.Common.Specs.IGenericComponent is registered

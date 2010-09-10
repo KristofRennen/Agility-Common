@@ -31,7 +31,7 @@ namespace Agility.Common.Specs.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Inversion Of Control", "In order to manage dynamic components and dependencies\r\nAs an application\r\nI want" +
-                    " to be able to register and resolve components", ((string[])(null)));
+                    " to be able to register, resolve and unregister components", ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -695,6 +695,99 @@ testRunner.When("I try to resolve component Agility.Common.Specs.IComponentWithG
 #line 188
 testRunner.Then("The system shows the error message \"There are unregistered dependencies for compo" +
                     "nent Agility.Common.Specs.IComponentWithGenericDependencies\"");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Unregister an unexisting component")]
+        public virtual void UnregisterAnUnexistingComponent()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unregister an unexisting component", ((string[])(null)));
+#line 190
+this.ScenarioSetup(scenarioInfo);
+#line 191
+testRunner.Given("Component Agility.Common.Specs.IComponent is not registered");
+#line 192
+testRunner.When("I try to unregister component Agility.Common.Specs.IComponent");
+#line 193
+testRunner.Then("Component Agility.Common.Specs.IComponent is not registered");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Unregister a registered transient component")]
+        public virtual void UnregisterARegisteredTransientComponent()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unregister a registered transient component", ((string[])(null)));
+#line 195
+this.ScenarioSetup(scenarioInfo);
+#line 196
+testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a transient");
+#line 197
+testRunner.When("I try to unregister component Agility.Common.Specs.IComponent");
+#line 198
+testRunner.Then("Component Agility.Common.Specs.IComponent is not registered");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Unregister a registered singleton component")]
+        public virtual void UnregisterARegisteredSingletonComponent()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unregister a registered singleton component", ((string[])(null)));
+#line 200
+this.ScenarioSetup(scenarioInfo);
+#line 201
+testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a singleton");
+#line 202
+testRunner.When("I try to unregister component Agility.Common.Specs.IComponent");
+#line 203
+testRunner.Then("Component Agility.Common.Specs.IComponent is not registered");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Unregister a registered transient component without touching other components")]
+        public virtual void UnregisterARegisteredTransientComponentWithoutTouchingOtherComponents()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unregister a registered transient component without touching other components", ((string[])(null)));
+#line 205
+this.ScenarioSetup(scenarioInfo);
+#line 206
+testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a transient");
+#line 207
+testRunner.And("Component Agility.Common.Specs.IGenericComponent is registered as a transient");
+#line 208
+testRunner.When("I try to unregister component Agility.Common.Specs.IComponent");
+#line 209
+testRunner.Then("Component Agility.Common.Specs.IComponent is not registered");
+#line 210
+testRunner.But("Component Agility.Common.Specs.IGenericComponent is registered");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Unregister a registered singleton component without touching other components")]
+        public virtual void UnregisterARegisteredSingletonComponentWithoutTouchingOtherComponents()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Unregister a registered singleton component without touching other components", ((string[])(null)));
+#line 212
+this.ScenarioSetup(scenarioInfo);
+#line 213
+testRunner.Given("Component Agility.Common.Specs.IComponent is registered as a singleton");
+#line 214
+testRunner.And("Component Agility.Common.Specs.IGenericComponent is registered as a singleton");
+#line 215
+testRunner.When("I try to unregister component Agility.Common.Specs.IComponent");
+#line 216
+testRunner.Then("Component Agility.Common.Specs.IComponent is not registered");
+#line 217
+testRunner.But("Component Agility.Common.Specs.IGenericComponent is registered");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
