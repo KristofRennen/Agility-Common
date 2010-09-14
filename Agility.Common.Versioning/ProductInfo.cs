@@ -5,7 +5,7 @@ using System.Reflection;
 [assembly: AssemblyCopyright("Copyright © Kristof Rennen 2010")]
 
 // Major.Minor.Revision.Build (e.g. 2.5.1.25610)
-[assembly: AssemblyVersion("1.0.1.*")]
+[assembly: AssemblyVersion("1.1.0.*")]
 
 // Major.Minor.Revision (e.g. 2.5.1)
-[assembly: AssemblyInformationalVersion("1.0.1")]
+[assembly: AssemblyInformationalVersion("1.1.0")]

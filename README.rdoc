@@ -4,6 +4,13 @@ A Common Library With Shared Agile Components
 
 == Versions
 
+v1.1.0 - 2010/09/06 : 2010/09/14
+ + Support for component unregistering
+ + Support for generic components
+ + Clean and readable error messages when something goes wrong
+ + Fully covered SpecFlow test suite
+ + Extension to get a type's nice name
+
 v1.0.1 - 2010/09/02 : 2010/09/06
  + Full code documentation
  + Fully covered technical test suite
